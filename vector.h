@@ -268,10 +268,7 @@ Vector<T>& Vector<T>::operator=(const Vector<T> &rhs) {
 
 template<typename T>
 Vector<T>& Vector<T>::operator=(Vector<T> &&rhs) noexcept {
-    if (this != &rhs) {
-        data_ = std::move(rhs.data_);
-        size_ = std::exchange(rhs.size_, 0);
-    }
+    Swap(rhs);
     return *this;
 }
 
